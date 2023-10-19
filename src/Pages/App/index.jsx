@@ -8,6 +8,8 @@ import SignIn from "../SignIn";
 import NotFound from "../NotFound";
 import Navbar from "../../Components/NavBar";
 import "./index.css";
+import NavBarMobile from "../../Components/NavBarMobile";
+import { useContext } from "react";
 
 const AppRoutes = () => {
   let routes = useRoutes([

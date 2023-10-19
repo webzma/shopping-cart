@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ShoppingBagIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 import { ShoppingCartContext } from "../../Context";
 
 const Navbar = () => {
@@ -8,12 +9,12 @@ const Navbar = () => {
   const activeStyle = "underline underline-offset-4";
 
   return (
-    <nav className="flex bg-white justify-between md:justify-center lg:justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light">
-      <ul className="hidden sm:flex  items-center gap-3">
+    <nav className="flex bg-white justify-between sm:justify-center lg:justify-between items-center fixed z-10 top-0 w-full  py-5 px-2 sm:px-8 text-sm font-light">
+      <ul className="flex sm:flex  items-center gap-3">
         <li className="font-semibold text-lg">
           <NavLink to="/">Shopi</NavLink>
         </li>
-        <li>
+        <li className="hidden sm:flex ">
           <NavLink
             to="/"
             onClick={() => context.setShowByCategory("all")}
@@ -22,7 +23,7 @@ const Navbar = () => {
             All
           </NavLink>
         </li>
-        <li>
+        <li className="hidden sm:flex ">
           <NavLink
             to="/clothes"
             onClick={() => context.setShowByCategory("clothes")}
@@ -31,7 +32,7 @@ const Navbar = () => {
             Clothes
           </NavLink>
         </li>
-        <li>
+        <li className="hidden sm:flex ">
           <NavLink
             to="/electronics"
             onClick={() => context.setShowByCategory("electronics")}
@@ -40,7 +41,7 @@ const Navbar = () => {
             Electronics
           </NavLink>
         </li>
-        <li>
+        <li className="hidden sm:flex ">
           <NavLink
             to="/furnitures"
             onClick={() => context.setShowByCategory("furnitures")}
@@ -49,7 +50,7 @@ const Navbar = () => {
             Furnitures
           </NavLink>
         </li>
-        <li>
+        <li className="hidden sm:flex">
           <NavLink
             to="/toys"
             onClick={() => context.setShowByCategory("toys")}
@@ -58,7 +59,7 @@ const Navbar = () => {
             Toys
           </NavLink>
         </li>
-        <li>
+        <li className="hidden sm:flex">
           <NavLink
             to="/others"
             onClick={() => context.setShowByCategory("others")}
@@ -68,7 +69,7 @@ const Navbar = () => {
           </NavLink>
         </li>
       </ul>
-      <ul className="hidden  lg:flex items-center gap-3">
+      <ul className="hidden lg:flex items-center gap-3">
         <li className="text-black/60">pepito@gmail.com</li>
         <li>
           <NavLink
@@ -99,6 +100,10 @@ const Navbar = () => {
           <div>{context.cartProducts.length}</div>
         </li>
       </ul>
+      <Bars3Icon
+        className="w-6 h-6 cursor-pointer block sm:hidden"
+        onClick={() => context.toggleNavBar()}
+      />
     </nav>
   );
 };

@@ -3,6 +3,14 @@ import { createContext, useState, useEffect } from "react";
 export const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
+  // Shopping cart · Open/Close NavBar (mobile)
+  const [openNavBar, setOpenNavBar] = useState(false);
+
+  function toggleNavBar() {
+    console.log("asn");
+    setOpenNavBar(!openNavBar);
+  }
+
   // Shopping Cart · Increment quantity
   const [count, setCount] = useState(0);
 
@@ -119,6 +127,8 @@ export const ShoppingCartProvider = ({ children }) => {
         filteredItems,
         searchByCategory,
         setSearchByCategory,
+        toggleNavBar,
+        openNavBar,
       }}
     >
       {children}
