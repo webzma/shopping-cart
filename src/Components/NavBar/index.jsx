@@ -29,17 +29,17 @@ const Navbar = () => {
     if (hasUserAnAccount && !isUserSignOut) {
       return (
         <>
-          <li className='text-black/60'>
+          <li className='text-black/60 hidden lg:flex'>
             {parsedAccount?.email}
           </li>
-          <li>
+          <li className='hidden lg:flex'>
             <NavLink
               to='/my-orders'
               className={({ isActive }) => isActive ? activeStyle : undefined}>
               My Orders
             </NavLink>
           </li>
-          <li>
+          <li className='hidden lg:flex'>
             <NavLink
               to='/my-account'
               className={({ isActive }) => isActive ? activeStyle : undefined}>
@@ -71,14 +71,14 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='flex bg-white justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light'>
+    <nav className='flex bg-white justify-between  lg:justify-between items-center fixed z-10 top-0 w-full  py-5 px-6 sm:px-8 text-sm font-light'>
       <ul className='flex items-center gap-3'>
         <li className='font-semibold text-lg'>
           <NavLink to={`${isUserSignOut ? '/sign-in' : '/'}`}>
             Shopi
           </NavLink>
         </li>
-        <li>
+        <li className='hidden lg:flex'>
           <NavLink
             to='/'
             onClick={() => context.setSearchByCategory()}
@@ -88,7 +88,7 @@ const Navbar = () => {
             All
           </NavLink>
         </li>
-        <li>
+        <li className='hidden lg:flex'>
           <NavLink
             to='/clothes'
             onClick={() => context.setSearchByCategory('clothes')}
@@ -98,7 +98,7 @@ const Navbar = () => {
             Clothes
           </NavLink>
         </li>
-        <li>
+        <li className='hidden lg:flex'>
           <NavLink
             to='/electronics'
             onClick={() => context.setSearchByCategory('electronics')}
@@ -108,7 +108,7 @@ const Navbar = () => {
             Electronics
           </NavLink>
         </li>
-        <li>
+        <li className='hidden lg:flex'>
           <NavLink
             to='/furnitures'
             onClick={() => context.setSearchByCategory('furnitures')}
@@ -118,7 +118,7 @@ const Navbar = () => {
             Furnitures
           </NavLink>
         </li>
-        <li>
+        <li className='hidden lg:flex'>
           <NavLink
             to='/toys'
             onClick={() => context.setSearchByCategory('toys')}
@@ -128,7 +128,7 @@ const Navbar = () => {
             Toys
           </NavLink>
         </li>
-        <li>
+        <li className='hidden lg:flex'>
           <NavLink
             to='/others'
             onClick={() => context.setSearchByCategory('others')}
