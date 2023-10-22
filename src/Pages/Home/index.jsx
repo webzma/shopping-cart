@@ -8,7 +8,6 @@ import NavBarMobile from "../../Components/NavBarMobile";
 
 function Home() {
   const context = useContext(ShoppingCartContext);
-  console.log(context.openNavBar);
 
   return (
     <Layout>

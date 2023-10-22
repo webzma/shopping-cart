@@ -2,12 +2,39 @@ import { createContext, useState, useEffect } from "react";
 
 export const ShoppingCartContext = createContext();
 
+export const initializeLocalStorage = () => {
+  const accountInLocalStorage = localStorage.getItem('account')
+  const signOutLocalStorage = localStorage.getItem('sign-out')
+  let parsedAccount
+  let parseSignOut
+
+  if (!accountInLocalStorage) {
+    localStorage.setItem('account', JSON.stringify({}))
+    parsedAccount = {}
+  } else {
+    parsedAccount = JSON.parse(accountInLocalStorage)
+  }
+
+
+  if (!signOutLocalStorage) {
+    localStorage.setItem('sign-out', JSON.stringify({}))
+    parseSignOut = {}
+  } else {
+    parseSignOut = JSON.parse(signOutLocalStorage)
+  }
+}
+
 export const ShoppingCartProvider = ({ children }) => {
+  // Shopping Cart · Account 
+  const [account, setAccount] = useState({})
+
+  // Shopping Cart · SignOut
+  const [signOut, setSignOut] = useState(false)
+
   // Shopping cart · Open/Close NavBar (mobile)
   const [openNavBar, setOpenNavBar] = useState(false);
 
   function toggleNavBar() {
-    console.log("asn");
     setOpenNavBar(!openNavBar);
   }
 
@@ -48,6 +75,7 @@ export const ShoppingCartProvider = ({ children }) => {
       .then((response) => response.json())
       .then((data) => setItems(data));
   }, []);
+
 
   const filteredItemsByTitle = (items, searchByTitle) => {
     return items?.filter((item) =>
@@ -129,6 +157,10 @@ export const ShoppingCartProvider = ({ children }) => {
         setSearchByCategory,
         toggleNavBar,
         openNavBar,
+        signOut,
+        setSignOut,
+        account,
+        setAccount,
       }}
     >
       {children}
