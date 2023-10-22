@@ -82,7 +82,7 @@ function SignIn() {
             id="name"
             name="name"
             defaultValue={parsedAccount?.name}
-            placeholder="Peter"
+            placeholder="Yosilandia"
             className='rounded-lg border border-black placeholder:font-light
             placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4'
           />
@@ -94,7 +94,7 @@ function SignIn() {
             id="email"
             name="email"
             defaultValue={parsedAccount?.email}
-            placeholder="hi@helloworld.com"
+            placeholder="yosilandia@gmail.com"
             className='rounded-lg border border-black
             placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4'
           />
